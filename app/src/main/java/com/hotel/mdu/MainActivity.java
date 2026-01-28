@@ -132,8 +132,23 @@ public class MainActivity extends Activity {
 
         @JavascriptInterface
         public void requestScan() {
+            Log.d(TAG, "requestScan called from JavaScript");
             startScan();
-            new android.os.Handler().postDelayed(() -> stopScan(), 3000);
+            new android.os.Handler().postDelayed(() -> {
+                Log.d(TAG, "Stopping scan after 3 seconds");
+                stopScan();
+            }, 3000);
+        }
+
+        @JavascriptInterface
+        public void testConnection() {
+            Log.d(TAG, "Test connection called from JavaScript");
+            runOnUiThread(() -> {
+                webView.evaluateJavascript(
+                    "window.onBleEvent && window.onBleEvent('{\"test\": \"Android bridge working\"}');", 
+                    null
+                );
+            });
         }
     }
 
