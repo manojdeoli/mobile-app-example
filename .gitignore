@@ -1,0 +1,21 @@
+# Exclude APKs from main repo (we'll use releases)
+*.apk
+!releases/*.apk
+
+# Android build files
+build/
+.gradle/
+local.properties
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+
+# Node modules
+node_modules/
+npm-debug.log*
+
+# React build
+build/
+dist/
