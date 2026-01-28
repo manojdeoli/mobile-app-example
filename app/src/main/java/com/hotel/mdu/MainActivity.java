@@ -33,10 +33,8 @@ public class MainActivity extends Activity {
                 String deviceName = result.getDevice().getName();
                 if (deviceName == null) deviceName = "Unknown";
                 
-                // Filter for hotel beacons
-                if (deviceName.contains("Hotel") || deviceName.contains("Gate") || 
-                    deviceName.contains("Kiosk") || deviceName.contains("Elevator") || 
-                    deviceName.contains("Room")) {
+                // Show ALL BLE devices for testing
+                if (true) {
                     
                     JSONObject bleEvent = new JSONObject();
                     bleEvent.put("deviceId", result.getDevice().getAddress());
